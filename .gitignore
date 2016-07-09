@@ -1,0 +1,11 @@
+env/
+data/
+dist/
+build/
+*.egg-info/
+*.pyc
+__pycache/
+*.swp
+*.swo
+*~
+.ropeproject/
