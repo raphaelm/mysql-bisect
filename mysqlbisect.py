@@ -67,6 +67,12 @@ class MySQLBisect:
                     print("File {} was bad".format(filenames[i]))
                 min_known_bad = i
 
+        if self.verbose:
+            print("Cleanup...")
+        cur = self.conn.cursor()
+        cur.execute('DROP DATABASE IF EXISTS `{}`;'.format(self.db))
+        cur.close()
+
         print("Done bisecting!")
         print("The file {} is the last one to be known as good".format(filenames[max_known_good]))
         print("The file {} is the first one to be known as bad".format(filenames[min_known_bad]))
