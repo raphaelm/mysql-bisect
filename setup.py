@@ -14,7 +14,7 @@ setup(
         'Topic :: System :: Archiving :: Backup',
         'Topic :: Database'
     ],
-    version='1.0',
+    version='1.1',
     py_modules=['mysqlbisect'],
     install_requires=[
         'Click',

@@ -45,6 +45,13 @@ class MySQLBisect:
             with open(fname, 'r') as f:
                 subprocess.check_output(args, stdin=f)
 
+    def check(self, fname):
+        self._load_dump(fname)
+        self.conn.select_db(self.db)
+        cur = self.conn.cursor()
+        cur.execute(self.query)
+        res = cur.fetchone()
+        return res and any(res)
 
     def bisect(self, filenames):
         max_known_good = 0
